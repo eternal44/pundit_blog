@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  groupify :group_member
+  groupify :named_group_member
+
   has_many :posts
 
   def admin?
@@ -18,3 +21,5 @@ class User < ActiveRecord::Base
   	role == "guest"
   end
 end
+
+
